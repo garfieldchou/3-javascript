@@ -14,27 +14,31 @@
     
     <body>
     
-        <p>What is the magic world?</p>
+        <p>How many fingers am I holding up?</p>
         
-        <p><input type="text" id="magicWord">
-        
-        <p><button id="checkMagicWord">Enter:</button></p>
+        <p><input type="number" id="fingerGuessed"><button id="checkFinger">Guess!</button></p>
     
         <script type="text/javascript">
         
-            document.getElementById("checkMagicWord").onclick = function() {
-        
-                var magicWordEntered = document.getElementById("magicWord").value;
+            function getRandomInt(min, max) {
                 
-                var magicWord = "abracadabra";
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+                
+            }
+        
+            document.getElementById("checkFinger").onclick = function() {
+        
+                var fingerEntered = document.getElementById("fingerGuessed").value;
+                
+                var fingerHold = getRandomInt(0, 5);
                             
-                if (magicWordEntered == magicWord) {
+                if (fingerEntered == fingerHold) {
                 
                     alert("You got it!");
                     
                 } else {
                 
-                    alert("Nope, try again!");
+                    alert("Nope, try again!" + " It's " + fingerHold);
                     
                 }
             
