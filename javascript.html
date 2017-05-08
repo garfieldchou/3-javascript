@@ -14,17 +14,30 @@
     
     <body>
     
+        <p>What is the magic world?</p>
+        
+        <p><input type="text" id="magicWord">
+        
+        <p><button id="checkMagicWord">Enter:</button></p>
+    
         <script type="text/javascript">
         
-            var x = 2;
-            
-            if (x == 1) {
-            
-                alert("x is 1!!");
+            document.getElementById("checkMagicWord").onclick = function() {
+        
+                var magicWordEntered = document.getElementById("magicWord").value;
                 
-            } else {
+                var magicWord = "abracadabra";
+                            
+                if (magicWordEntered == magicWord) {
+                
+                    alert("You got it!");
+                    
+                } else {
+                
+                    alert("Nope, try again!");
+                    
+                }
             
-                alert("x is not 1!!");
             }
         
         </script>
