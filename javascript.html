@@ -14,35 +14,33 @@
     
     <body>
     
-        <p>How many fingers am I holding up?</p>
-        
-        <p><input type="number" id="fingerGuessed"><button id="checkFinger">Guess!</button></p>
+    <p>How many fingers am I holding up?</p>
+    
+    <p><input type="text" id="guess"> <button id="checkGuess">Guess!</button></p>
     
         <script type="text/javascript">
         
-            function getRandomInt(min, max) {
+            document.getElementById("checkGuess").onclick = function() {
+            
+                var randomNumber = Math.random(); // random number in [0,1)
                 
-                return Math.floor(Math.random() * (max - min + 1)) + min;
+                randomNumber = randomNumber * 6; // random number in [0,6)
                 
-            }
-        
-            document.getElementById("checkFinger").onclick = function() {
-        
-                var fingerEntered = document.getElementById("fingerGuessed").value;
+                randomNumber = Math.floor(randomNumber); 
                 
-                var fingerHold = getRandomInt(0, 5);
-                            
-                if (fingerEntered == fingerHold) {
+                if (document.getElementById("guess").value == randomNumber) {
                 
-                    alert("You got it!");
+                    alert("Well done! You got it!");
                     
                 } else {
                 
-                    alert("Nope, try again!" + " It's " + fingerHold);
+                    alert("Nope! The number was " + randomNumber);
                     
                 }
-            
+                
             }
+        
+            //alert(Math.floor(Math.random() * 6));
         
         </script>
         
