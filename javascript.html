@@ -9,26 +9,64 @@
     
     <body>
 
-        <div id="tweetDiv"></div>
+        <p>How many fingers are you holding up?</p>
+
+        <p>
+
+            <select id="myNumber">
+
+                <option>0</option>
+
+                <option>1</option>
+
+                <option>2</option>
+
+                <option>3</option>
+
+                <option>4</option>
+
+                <option>5</option>
+
+            </select>                                                
+
+            <button id="guess">Guess!</button>
+
+        </p>
     
         <script type="text/javascript">
 
-            var tweetString = "";
+            document.getElementById("guess").onclick = function() {
 
-            var tweets = ["Hi, everyone!", "I love cornflakes!", "Night night :)", "Sweet dreams!"];
+                var myNumber = document.getElementById("myNumber").value;
 
-            var i = 0;
+                var gotIt = false;
 
-            while (i < tweets.length) {
+                var numberOfGuess = 1;
 
-                tweetString = tweetString + "<p>" + tweets[i] + "</p>";
+                while (gotIt == false) {
 
-                i++;
+                    var guess = Math.random();
+
+                    guess = guess * 6;
+
+                    guess = Math.floor(guess);
+
+                    if (guess == myNumber) {
+
+                        gotIt = true;
+
+                        alert("Got it! It was a " + guess + ". It took me " + numberOfGuess + " guesses.");
+
+
+                    } else {
+
+                        numberOfGuess++;
+
+                    }
+
+                }
 
             }
-
-            document.getElementById("tweetDiv").innerHTML = tweetString;
-
         
         </script>
         
