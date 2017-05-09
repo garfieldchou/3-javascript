@@ -4,84 +4,63 @@
     <head>
     
         <title>Javascript</title>
+
+        <style type="text/css">
+
+            #myDiv {
+
+                width: 50px;
+                height:  50px;
+                background-color: blue;
+                position: relative;
+
+            }
+        </style>
         
     </head>
     
     <body>
 
-        <p>How many fingers are you holding up?</p>
-
-        <p>
-
-            <select id="myNumber">
-
-                <option>0</option>
-
-                <option>1</option>
-
-                <option>2</option>
-
-                <option>3</option>
-
-                <option>4</option>
-
-                <option>5</option>
-
-            </select>                                                
-
-            <button id="guess">Guess!</button>
-
-        </p>
+        <div id="myDiv"></div>
     
         <script type="text/javascript">
 
-            function doAGuess(correctAnswer) {
+            var colors = ["blue", "green", "red", "yellow"];
 
-                var guess = Math.random();
+            var borderRadius = ["0%", "50%"];
 
-                    guess = guess * 6;
+            function randomColorIdx () {
 
-                    guess = Math.floor(guess);
-
-                    if (guess == correctAnswer) {
-
-                        return true;
-
-                    } else {
-
-                        return false;
-
-                    }
+                return Math.floor(Math.random() * 4);
 
             }
 
-            document.getElementById("guess").onclick = function() {
+            function randomShapeIdx () {
 
-                var myNumber = document.getElementById("myNumber").value;
-
-                var gotIt = false;
-
-                var numberOfGuess = 1;
-
-                while (gotIt == false) {
-
-                    if (doAGuess(myNumber) == true) {
-
-                        gotIt = true;
-
-                        alert("Got it! It was a " + myNumber + ". It took me " + numberOfGuess + " guesses.");
-
-
-                    } else {
-
-                        numberOfGuess++;
-
-                    }
-
-                }
+                return Math.floor(Math.random() * 2);
 
             }
-        
+
+            function randomPositionTop () {
+
+                return (Math.floor(Math.random() * 500) + "px");
+
+            }            
+
+            function randomPositionLeft () {
+
+                return (Math.floor(Math.random() * 101) + "%");
+
+            }
+
+            document.getElementById("myDiv").style.backgroundColor = colors[randomColorIdx()];
+
+            document.getElementById("myDiv").style.borderRadius = borderRadius[randomShapeIdx()];
+
+            document.getElementById("myDiv").style.top = randomPositionTop();
+
+            document.getElementById("myDiv").style.left = randomPositionLeft();
+
         </script>
         
     </body>
