@@ -9,20 +9,78 @@
     
     <body>
 
+        <p>How many fingers are you holding up?</p>
+
+        <p>
+
+            <select id="myNumber">
+
+                <option>0</option>
+
+                <option>1</option>
+
+                <option>2</option>
+
+                <option>3</option>
+
+                <option>4</option>
+
+                <option>5</option>
+
+            </select>                                                
+
+            <button id="guess">Guess!</button>
+
+        </p>
     
         <script type="text/javascript">
 
-            function average(a, b) {
+            function doAGuess(correctAnswer) {
 
-                return ((a + b) / 2);
+                var guess = Math.random();
+
+                    guess = guess * 6;
+
+                    guess = Math.floor(guess);
+
+                    if (guess == correctAnswer) {
+
+                        return true;
+
+                    } else {
+
+                        return false;
+
+                    }
 
             }
 
-            var x = 5;
+            document.getElementById("guess").onclick = function() {
 
-            var y = 10;
+                var myNumber = document.getElementById("myNumber").value;
 
-            alert(average(x, y));
+                var gotIt = false;
+
+                var numberOfGuess = 1;
+
+                while (gotIt == false) {
+
+                    if (doAGuess(myNumber) == true) {
+
+                        gotIt = true;
+
+                        alert("Got it! It was a " + myNumber + ". It took me " + numberOfGuess + " guesses.");
+
+
+                    } else {
+
+                        numberOfGuess++;
+
+                    }
+
+                }
+
+            }
         
         </script>
         
