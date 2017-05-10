@@ -37,7 +37,13 @@
 
             }
 
-            setTimeout(makeShapeAppear, Math.random() * 2000);
+            function appearAfterDelay() {
+
+                setTimeout(makeShapeAppear, Math.random() * 2000);
+
+            }
+
+            appearAfterDelay();
 
             document.getElementById("shape").onclick = function() {
 
@@ -48,6 +54,8 @@
                 var timeTaken = (end - start) / 1000;
 
                 document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+
+                appearAfterDelay();
 
             }
         
